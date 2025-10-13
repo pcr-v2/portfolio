@@ -7,6 +7,7 @@ import { useState } from "react";
 import MenuBtn from "@/app/_components/Layout/Header/MenuBtn";
 import MobileMenu from "@/app/_components/Layout/Header/MobileMenu";
 import SubMenus from "@/app/_components/Layout/Header/SubMenus";
+import { useScroll } from "@/app/_components/ScrollProvider";
 import { MENUS } from "@/config/Menus";
 
 interface IProps {
@@ -15,6 +16,7 @@ interface IProps {
 
 export default function Header(props: IProps) {
   const { scrollDirection } = props;
+
   const [btnHover, setBtnHover] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHover, setIsHover] = useState({ hover: false, name: "" });
@@ -98,14 +100,16 @@ export default function Header(props: IProps) {
         open={menuOpen}
         onClick={() => {
           setMenuOpen(!menuOpen);
-
           setIsHover({ hover: true, name: "" });
         }}
       />
 
-      <SubMenus {...isHover} />
+      <SubMenus
+        {...isHover}
+        hoverOff={() => setIsHover({ hover: false, name: "" })}
+      />
 
-      <MobileMenu menuOpen={menuOpen} setMenuOpen={() => {}} />
+      <MobileMenu menuOpen={menuOpen} menuOff={() => setMenuOpen(false)} />
     </Wrapper>
   );
 }

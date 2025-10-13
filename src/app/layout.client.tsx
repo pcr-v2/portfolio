@@ -1,3 +1,4 @@
+// src/app/(main)/ClientLayout.tsx
 "use client";
 
 import { Box, styled, ThemeProvider } from "@mui/material";
@@ -8,8 +9,13 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 import Header from "@/app/_components/Layout/Header";
 import { RootToast } from "@/app/_components/RootToast";
+import { ScrollProvider } from "@/app/_components/ScrollProvider";
 import { Dialogs } from "@/store/dialog/Dialogs";
 import theme from "@/theme";
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
 
 interface IProps {
   children: ReactNode;
@@ -21,6 +27,7 @@ export default function ClientLayout(props: IProps) {
   const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(
     null,
   );
+
   const lastScrollY = useRef(0);
 
   const THRESHOLD = 20; // 작은 스크롤은 무시
@@ -30,11 +37,11 @@ export default function ClientLayout(props: IProps) {
       const currentScrollY = window.scrollY;
       const diff = currentScrollY - lastScrollY.current;
 
-      if (Math.abs(diff) < THRESHOLD) return; // 임계값 이하 무시
+      if (Math.abs(diff) < THRESHOLD) return;
 
       setScrollDirection(diff > 0 ? "down" : "up");
       lastScrollY.current = currentScrollY;
-    }, 100); // 100ms마다 처리
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -43,25 +50,25 @@ export default function ClientLayout(props: IProps) {
   return (
     <AppRouterCacheProvider options={{ enableCssLayer: false, prepend: false }}>
       <ThemeProvider theme={theme}>
-        <Dialogs />
-        <ChildrenWrap>
-          <Header scrollDirection={scrollDirection} />
-          {children}
-        </ChildrenWrap>
-        <CssBaseline />
-        <RootToast />
+        <ScrollProvider>
+          <Dialogs />
+          <ChildrenWrap>
+            <Header scrollDirection={scrollDirection} />
+            {children}
+          </ChildrenWrap>
+          <CssBaseline />
+          <RootToast />
+        </ScrollProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>
   );
 }
 
-const ChildrenWrap = styled(Box)(() => {
-  return {
-    width: "100%",
-    display: "flex",
-    minHeight: "100dvh",
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center",
-  };
-});
+const ChildrenWrap = styled(Box)(() => ({
+  width: "100%",
+  display: "flex",
+  minHeight: "100dvh",
+  alignItems: "center",
+  flexDirection: "column",
+  justifyContent: "center",
+}));

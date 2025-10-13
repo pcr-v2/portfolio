@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { easeInOut, Variants } from "framer-motion";
 import { useState } from "react";
 
+import { useScroll } from "@/app/_components/ScrollProvider";
 import { MENUS } from "@/config/Menus";
 
 const variants: Variants = {
@@ -19,11 +20,12 @@ const variants: Variants = {
 interface IProps {
   hover: boolean;
   name: string;
+  hoverOff: () => void;
 }
 
 export default function SubMenus(props: IProps) {
-  const { hover, name = "Info" } = props;
-
+  const { hover, name = "Info", hoverOff } = props;
+  const { scrollTo } = useScroll();
   const [hoverChild, setHoverChild] = useState({ hover: true, childName: "" });
 
   return (
@@ -48,8 +50,12 @@ export default function SubMenus(props: IProps) {
                     return (
                       <SubMenuItem
                         key={child.name}
-                        onClick={() => {}}
-                        path={""}
+                        onClick={() => {
+                          scrollTo(child.refName as string, () => {
+                            hoverOff();
+                            setHoverChild({ hover: false, childName: "" });
+                          });
+                        }}
                         onMouseEnter={() =>
                           setHoverChild({ hover: true, childName: child.name })
                         }
@@ -127,13 +133,13 @@ const SubMenusGroup = styled(Box)(() => ({
   justifyContent: "start",
 }));
 
-const SubMenuItem = styled(motion.div)<{ path: string }>(({ path }) => ({
+const SubMenuItem = styled(motion.div)(() => ({
   fontWeight: 400,
+  color: "#333",
   fontSize: "14px",
   cursor: "pointer",
   lineHeight: "17px",
   position: "relative",
-  color: path === "true" ? "#3196ff" : "#333",
 }));
 
 const UnderLine = styled(motion.div)(() => {

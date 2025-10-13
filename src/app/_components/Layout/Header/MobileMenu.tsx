@@ -4,16 +4,18 @@ import { Box, styled } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
+import { useScroll } from "@/app/_components/ScrollProvider";
 import { MENUS } from "@/config/Menus";
 
 interface IProps {
   menuOpen: boolean;
-  setMenuOpen: (open: boolean) => void;
+  menuOff: () => void;
 }
 
-export default function MobileMenu({ menuOpen, setMenuOpen }: IProps) {
+export default function MobileMenu({ menuOpen, menuOff }: IProps) {
   const [hoverChild, setHoverChild] = useState({ hover: true, childName: "" });
   const [btnHover, setBtnHover] = useState(false);
+  const { scrollTo } = useScroll();
   return (
     <AnimatePresence>
       {menuOpen && (
@@ -46,6 +48,12 @@ export default function MobileMenu({ menuOpen, setMenuOpen }: IProps) {
                         onMouseLeave={() =>
                           setHoverChild({ hover: false, childName: "" })
                         }
+                        onClick={() => {
+                          menuOff(); // 드로워 닫기 먼저 실행
+                          setTimeout(() => {
+                            scrollTo(child.refName as string);
+                          }, 350); // 드로워 transition 0.3초 이후에 스크롤
+                        }}
                       >
                         {child.name}
                         <UnderLine

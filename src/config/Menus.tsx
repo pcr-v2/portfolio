@@ -4,6 +4,7 @@ export type TMenus = {
   name: string;
   path: string;
   icon?: ReactNode;
+  refName?: string;
   opened?: boolean;
   children?: TMenus[];
 };
@@ -15,10 +16,12 @@ export const MENUS: TMenus[] = [
     children: [
       {
         name: "WhoIs",
+        refName: "whois",
         path: "/info/something2",
       },
       {
         name: "Career",
+        refName: "career",
         path: "/info/career",
       },
     ],
@@ -29,10 +32,12 @@ export const MENUS: TMenus[] = [
     children: [
       {
         name: "In-Company",
+        refName: "projectCompany",
         path: "/skills/nextjs",
       },
       {
         name: "Personal",
+        refName: "projectPersonal",
         path: "/skills/typescript",
       },
     ],
@@ -43,14 +48,17 @@ export const MENUS: TMenus[] = [
     children: [
       {
         name: "Co-Work",
+        refName: "mindCoWork",
         path: "/mind/co-work",
       },
       {
         name: "Developer",
+        refName: "mindDeveloper",
         path: "/mind/developer",
       },
       {
         name: "Attitude",
+        refName: "mindAttitude",
         path: "/mind/attitude",
       },
     ],
