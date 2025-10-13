@@ -8,14 +8,31 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.4",
+    "@mui/material": "^7.3.4",
+    "@mui/material-nextjs": "^7.3.3",
+    "@svgr/webpack": "^8.1.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/uuid": "^11.0.0",
+    "dayjs": "^1.11.18",
+    "framer-motion": "^12.23.22",
+    "lodash": "^4.17.21",
+    "next": "15.5.4",
+    "nodemailer": "^7.0.9",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-hot-toast": "^2.6.0",
+    "uuid": "^13.0.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
 }
