@@ -2,7 +2,7 @@
 
 import { Box, styled } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MenuBtn from "@/app/_components/Layout/Header/MenuBtn";
 import MobileMenu from "@/app/_components/Layout/Header/MobileMenu";
@@ -11,11 +11,14 @@ import { useScroll } from "@/app/_components/ScrollProvider";
 import { MENUS } from "@/config/Menus";
 
 interface IProps {
+  isScrolled: boolean;
   scrollDirection: "up" | "down" | null;
 }
 
 export default function Header(props: IProps) {
-  const { scrollDirection } = props;
+  const { scrollDirection, isScrolled = false } = props;
+
+  const { scrollTo } = useScroll();
 
   const [btnHover, setBtnHover] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,14 +37,11 @@ export default function Header(props: IProps) {
 
   return (
     <Wrapper
-      initial={{ y: 0 }}
-      animate={{ y: scrollDirection === "down" ? -80 : 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.5,
-        ease: "linear",
+      style={{
+        boxShadow:
+          isScrolled && !isHover
+            ? "0px 3px 6px 1px rgba(90, 97, 105, 0.12)"
+            : "",
       }}
       onMouseEnter={() => handleHover("In", "Info")}
       onMouseLeave={() => handleHover("Out", "")}
@@ -53,7 +53,14 @@ export default function Header(props: IProps) {
             const singleMenuHover = isHover.hover && menu.name === isHover.name;
 
             return (
-              <Menu key={menu.name}>
+              <Menu
+                key={menu.name}
+                onClick={() => {
+                  scrollTo(menu.refName, () => {
+                    setIsHover({ hover: false, name: "" });
+                  });
+                }}
+              >
                 <Title
                   onMouseEnter={() => handleHover("In", menu.name)}
                   hovername={(isHover.name === menu.name).toString()}
@@ -104,10 +111,12 @@ export default function Header(props: IProps) {
         }}
       />
 
-      <SubMenus
+      {/* <SubMenus
         {...isHover}
+        isScrolled={isScrolled}
+        scrollDirection={scrollDirection}
         hoverOff={() => setIsHover({ hover: false, name: "" })}
-      />
+      /> */}
 
       <MobileMenu menuOpen={menuOpen} menuOff={() => setMenuOpen(false)} />
     </Wrapper>
@@ -117,6 +126,7 @@ export default function Header(props: IProps) {
 const Wrapper = styled(motion.div)(({ theme }) => {
   return {
     top: 0,
+    zIndex: 99999,
     width: "100%",
     height: "80px",
     display: "flex",
@@ -124,10 +134,11 @@ const Wrapper = styled(motion.div)(({ theme }) => {
     maxWidth: "1920px",
     position: "sticky",
     alignItems: "center",
-    backdropFilter: "blur(2px)",
+    // backdropFilter: "blur(2px)",
     justifyContent: "space-between",
-    transition: "background-color 0.4s ease",
-    backgroundColor: "rgba(255,255,255,0.3)",
+    // transition: "background-color 0.4s ease",
+    backgroundColor: "#fff",
+
     [theme.breakpoints.down("tablet")]: {
       height: "60px",
     },

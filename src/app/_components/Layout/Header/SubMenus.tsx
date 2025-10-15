@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import { easeInOut, Variants } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useScroll } from "@/app/_components/ScrollProvider";
 import { MENUS } from "@/config/Menus";
@@ -20,13 +20,21 @@ const variants: Variants = {
 interface IProps {
   hover: boolean;
   name: string;
+  isScrolled: boolean;
+  scrollDirection: "up" | "down" | null;
   hoverOff: () => void;
 }
 
 export default function SubMenus(props: IProps) {
-  const { hover, name = "Info", hoverOff } = props;
+  const { hover, name = "Info", hoverOff, scrollDirection, isScrolled } = props;
   const { scrollTo } = useScroll();
   const [hoverChild, setHoverChild] = useState({ hover: true, childName: "" });
+
+  useEffect(() => {
+    if (scrollDirection != null) {
+      setHoverChild({ hover: false, childName: "" });
+    }
+  }, [scrollDirection]);
 
   return (
     <AnimatePresence initial={false}>
@@ -36,7 +44,10 @@ export default function SubMenus(props: IProps) {
         initial="closed"
         style={{
           backgroundColor: "#fff",
-          borderBottom: hover ? "1px solid #e0e0e0" : "none",
+          boxShadow:
+            hover || isScrolled
+              ? "0px 3px 6px rgba(90, 97, 105, 0.12), 0px -1px 0px rgba(255,255,255,1) inset"
+              : "",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
@@ -51,7 +62,7 @@ export default function SubMenus(props: IProps) {
                       <SubMenuItem
                         key={child.name}
                         onClick={() => {
-                          scrollTo(child.refName as string, () => {
+                          scrollTo(child.refName, () => {
                             hoverOff();
                             setHoverChild({ hover: false, childName: "" });
                           });

@@ -3,8 +3,7 @@
 import { Box, styled } from "@mui/material";
 import { useEffect, useRef } from "react";
 
-import InfoCareer from "@/app/(main)/info/InfoCareer";
-import InfoWhois from "@/app/(main)/info/InfoWhois";
+import MainInfo from "@/app/(main)/info";
 import MindAttitude from "@/app/(main)/mind/MindAttitude";
 import MindCoWork from "@/app/(main)/mind/MindCoWork";
 import MindDeveloper from "@/app/(main)/mind/MindDeveloper";
@@ -17,8 +16,7 @@ export default function Main() {
 
   // ✅ 섹션 정의 (순서, 컴포넌트, 이름)
   const sections = [
-    { name: "whois", Component: InfoWhois },
-    { name: "career", Component: InfoCareer },
+    { name: "info", Component: MainInfo },
     { name: "projectCompany", Component: ProjectInCompany },
     { name: "projectPersonal", Component: ProjectPersonal },
     { name: "mindCoWork", Component: MindCoWork },
@@ -57,6 +55,7 @@ export default function Main() {
 const Wrapper = styled(Box)(() => {
   return {
     width: "100%",
+    maxWidth: "1920px",
     display: "flex",
     flexDirection: "column",
   };

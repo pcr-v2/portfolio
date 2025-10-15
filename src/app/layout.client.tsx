@@ -7,11 +7,36 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { throttle } from "lodash";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
+import ChatBot from "@/app/_components/ChatBot";
 import Header from "@/app/_components/Layout/Header";
 import { RootToast } from "@/app/_components/RootToast";
 import { ScrollProvider } from "@/app/_components/ScrollProvider";
 import { Dialogs } from "@/store/dialog/Dialogs";
 import theme from "@/theme";
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
+
+// src/app/(main)/ClientLayout.tsx
 
 // src/app/(main)/ClientLayout.tsx
 
@@ -28,6 +53,8 @@ export default function ClientLayout(props: IProps) {
     null,
   );
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const lastScrollY = useRef(0);
 
   const THRESHOLD = 20; // 작은 스크롤은 무시
@@ -41,10 +68,25 @@ export default function ClientLayout(props: IProps) {
 
       setScrollDirection(diff > 0 ? "down" : "up");
       lastScrollY.current = currentScrollY;
-    }, 100);
+    }, 10);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const checkHandleScroll = () => {
+    if (window.scrollY > 20) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkHandleScroll);
+    return () => {
+      window.removeEventListener("scroll", checkHandleScroll);
+    };
   }, []);
 
   return (
@@ -53,11 +95,13 @@ export default function ClientLayout(props: IProps) {
         <ScrollProvider>
           <Dialogs />
           <ChildrenWrap>
-            <Header scrollDirection={scrollDirection} />
+            <Header scrollDirection={scrollDirection} isScrolled={isScrolled} />
             {children}
           </ChildrenWrap>
           <CssBaseline />
           <RootToast />
+
+          {isScrolled && <ChatBot />}
         </ScrollProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>

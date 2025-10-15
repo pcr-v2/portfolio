@@ -28,46 +28,16 @@ export default function MobileMenu({ menuOpen, menuOff }: IProps) {
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             {MENUS.map((menu) => (
               <Box key={menu.name}>
-                <MenuItem>{menu.name}</MenuItem>
-
-                {menu.children && (
-                  <SubMenuWrapper
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    {menu.children.map((child) => (
-                      <SubMenuItem
-                        key={child.name}
-                        onMouseEnter={() =>
-                          setHoverChild({
-                            hover: true,
-                            childName: child.name,
-                          })
-                        }
-                        onMouseLeave={() =>
-                          setHoverChild({ hover: false, childName: "" })
-                        }
-                        onClick={() => {
-                          menuOff(); // 드로워 닫기 먼저 실행
-                          setTimeout(() => {
-                            scrollTo(child.refName as string);
-                          }, 350); // 드로워 transition 0.3초 이후에 스크롤
-                        }}
-                      >
-                        {child.name}
-                        <UnderLine
-                          initial={{ width: 0 }}
-                          animate={{
-                            width:
-                              child.name === hoverChild.childName ? "100%" : 0,
-                          }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        />
-                      </SubMenuItem>
-                    ))}
-                  </SubMenuWrapper>
-                )}
+                <MenuItem
+                  onClick={() => {
+                    menuOff(); // 드로워 닫기 먼저 실행
+                    setTimeout(() => {
+                      scrollTo(menu.refName);
+                    }, 350); // 드로워 transition 0.3초 이후에 스크롤
+                  }}
+                >
+                  {menu.name}
+                </MenuItem>
               </Box>
             ))}
             <ContactBtn
