@@ -59,10 +59,11 @@ export default function TopBtn() {
   );
 }
 
-const Wrapper = styled(motion.div)(() => ({
+const Wrapper = styled(motion.div)(({ theme }) => ({
   zIndex: 50,
-  right: "16px",
-  bottom: "48px",
+  right: "32px",
+  bottom: "56px",
+
   width: "40px",
   height: "40px",
   cursor: "pointer",
@@ -78,6 +79,10 @@ const Wrapper = styled(motion.div)(() => ({
   "&:hover": {
     backgroundColor: "#f0f6ff",
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+  },
+  [theme.breakpoints.down("tablet")]: {
+    right: "16px",
+    bottom: "48px",
   },
 }));
 
