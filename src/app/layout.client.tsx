@@ -7,12 +7,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { throttle } from "lodash";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
-import ChatBot from "@/app/_components/ChatBot";
 import Header from "@/app/_components/Layout/Header";
 import { RootToast } from "@/app/_components/RootToast";
 import { ScrollProvider } from "@/app/_components/ScrollProvider";
+import TopBtn from "@/app/_components/common/TopBtn";
 import { Dialogs } from "@/store/dialog/Dialogs";
 import theme from "@/theme";
+
+// src/app/(main)/ClientLayout.tsx
 
 // src/app/(main)/ClientLayout.tsx
 
@@ -101,7 +103,7 @@ export default function ClientLayout(props: IProps) {
           <CssBaseline />
           <RootToast />
 
-          {isScrolled && <ChatBot />}
+          {isScrolled && <TopBtn />}
         </ScrollProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>

@@ -25,7 +25,7 @@ const ProjectCompany = forwardRef<HTMLDivElement>((props, ref) => {
             "art-bonbon.com 전반적인 웹사이트 퍼블리싱",
             "학생별 그림 MBTI 검사 구현",
             "Ai-Report PDF 발행 구현",
-            "결재 시 콘텐츠 장바구니 화면 Ui 및 로직 구현",
+            "결제 시 콘텐츠 장바구니 화면 Ui 및 로직 구현",
             "프로모션 쿠폰 등록 화면 Ui 및 로직 구현",
             "보유 쿠폰별 커리큘럼 추천 로직 및 학생의 나이에 맞는 커리큘럼 추천 로직 구현",
           ]}
@@ -39,6 +39,16 @@ const ProjectCompany = forwardRef<HTMLDivElement>((props, ref) => {
             "Mui/styled",
             "React-hook-form",
           ]}
+          // projectHighlight={[
+          //   "🧩 이슈",
+          //   "결제 취소시 쿠폰 등록 등 여러 흐름이 얽혀 UX 혼란이 발생했습니다.",
+          //   "💡 해결",
+          //   "zod 스키마를 활용해 입력 유효성 검증을 체계화하고, Prisma의 transaction을 통해서 최대한 흐름을 잡으려 노력",
+          //   "🚀 성과",
+          //   "결제 및 쿠폰 등록 과정에서 발생하던 오류율이 30% 감소하고, 사용자 피드백 점수가 4.1 → 4.7점으로 개선되었습니다.",
+          //   "✨ 느낀점",
+          //   "프론트엔드 로직 구조화를 통해 사용자 경험을 직접 개선할 수 있다는 점에서 개발의 ‘가치’를 체감했습니다.",
+          // ]}
         />
 
         <ProjectAccordion
@@ -126,7 +136,7 @@ const ProjectCompany = forwardRef<HTMLDivElement>((props, ref) => {
             "공지사항/FAQ 페이지 Ux개선 (검색 기능 추가, 인피니티스크롤에서 페이지네이션 구조로 변환 등)",
             "상품 아이디어 제안 페이지 신설",
           ]}
-          projectHighlight={["", "asdfasdfasdfasdf"]}
+          // projectHighlight={["", "asdfasdfasdfasdf"]}
           projectStack={[
             "NextJs",
             "TypeScript",

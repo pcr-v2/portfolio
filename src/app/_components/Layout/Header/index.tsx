@@ -84,7 +84,7 @@ export default function Header(props: IProps) {
         </MenusBox>
       </Contents>
 
-      <ContactBtn
+      {/* <ContactBtn
         onHoverStart={() => setBtnHover(true)}
         onHoverEnd={() => setBtnHover(false)}
         onMouseEnter={() => handleHover("In", "Info")}
@@ -101,7 +101,7 @@ export default function Header(props: IProps) {
           animate={{ scaleX: btnHover ? 1 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         />
-      </ContactBtn>
+      </ContactBtn> */}
 
       <MenuBtn
         open={menuOpen}

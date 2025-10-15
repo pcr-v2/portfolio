@@ -207,7 +207,7 @@ const CardWrap = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "stretch",
-  "@media (max-width:1240px)": {
+  "@media (max-width:1384px)": {
     flexDirection: "column",
     maxWidth: "500px",
     margin: "0 auto",
@@ -262,6 +262,7 @@ const Card = styled(Box)<{ variant?: "info" | "skill" | "philosophy" }>(({
     },
 
     [theme.breakpoints.down("tablet")]: {
+      gap: "16px",
       padding: "24px 16px",
     },
   };
@@ -308,7 +309,7 @@ const Title = styled(Box)(({ theme }) => {
 //   };
 // });
 
-const CardTitle = styled("span")(() => {
+const CardTitle = styled("span")(({ theme }) => {
   return {
     zIndex: 2,
     fontSize: 24,
@@ -316,6 +317,9 @@ const CardTitle = styled("span")(() => {
     color: "#212121",
     position: "relative",
     fontFamily: "NanumSquareNeo",
+    [theme.breakpoints.down("tablet")]: {
+      fontSize: 20,
+    },
   };
 });
 

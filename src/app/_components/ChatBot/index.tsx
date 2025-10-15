@@ -14,11 +14,12 @@ export default function ChatBot() {
 
   return (
     <Wrapper
+      initial={false}
       onClick={() => setOnChatBot(!onChatBot)}
       animate={{
-        width: onChatBot ? 300 : "64px",
-        height: onChatBot ? 500 : "64px",
-        padding: onChatBot ? 0 : "10px",
+        width: onChatBot ? 300 : "52px",
+        height: onChatBot ? 500 : "52px",
+        padding: onChatBot ? 0 : "4px",
         borderRadius: onChatBot ? "32px" : "100%",
       }}
       transition={{
@@ -41,14 +42,12 @@ const Wrapper = styled(motion.div)(() => {
   return {
     zIndex: 10,
     right: "44px",
-    width: "64px",
-    height: "64px",
     bottom: "44px",
     padding: "10px",
     cursor: "pointer",
     position: "fixed",
     borderRadius: "100%",
-    backgroundColor: "#fafafa",
+    backgroundColor: "#fff",
     boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.16)",
   };
 });

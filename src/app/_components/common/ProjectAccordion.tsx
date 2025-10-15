@@ -83,12 +83,14 @@ export default function ProjectAccordion(props: IProps) {
           })}
         </Box>
 
-        <Box>
-          <IosDeviceTitle>[하이라이트]</IosDeviceTitle>
-          {projectHighlight?.map((el, idx) => {
-            return <DeviceDetail key={idx}>{el}</DeviceDetail>;
-          })}
-        </Box>
+        {projectHighlight && (
+          <Box>
+            <IosDeviceTitle>[하이라이트]</IosDeviceTitle>
+            {projectHighlight.map((el, idx) => {
+              return <DeviceDetail key={idx}>{el}</DeviceDetail>;
+            })}
+          </Box>
+        )}
       </AccordionDetails>
     </AccordionST>
   );
@@ -113,11 +115,11 @@ const Title = styled("span")(({ theme }) => {
 const DeviceDetail = styled(Box)(({ theme }) => {
   return {
     fontWeight: 400,
-    fontSize: "14px",
+    fontSize: "16px",
     color: "#616161",
     fontFamily: "NanumSquareNeo",
     [theme.breakpoints.down("tablet")]: {
-      fontSize: "12px",
+      fontSize: "14px",
     },
   };
 });
@@ -128,7 +130,7 @@ const AccordionST = styled(Accordion)(({ theme }) => ({
     width: "100%",
     maxWidth: "unset",
     borderRadius: "8px",
-    padding: "16px 24px",
+    padding: "24px",
     backgroundColor: "#fff",
     border: `1px solid #eee`,
   },

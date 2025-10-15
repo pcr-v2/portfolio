@@ -40,7 +40,7 @@ export default function MobileMenu({ menuOpen, menuOff }: IProps) {
                 </MenuItem>
               </Box>
             ))}
-            <ContactBtn
+            {/* <ContactBtn
               onHoverStart={() => setBtnHover(true)}
               onHoverEnd={() => setBtnHover(false)}
             >
@@ -56,7 +56,7 @@ export default function MobileMenu({ menuOpen, menuOff }: IProps) {
                 animate={{ scaleX: btnHover ? 1 : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
-            </ContactBtn>
+            </ContactBtn> */}
           </Box>
         </Drawer>
       )}
