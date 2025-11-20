@@ -1,17 +1,25 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { CodeDemo } from "@/components/code-demo";
+import { motion } from "framer-motion";
 
 export function MindSection() {
   return (
-    <section id="mind" className="min-h-screen py-20 px-6 md:px-12 lg:px-24 flex items-center relative overflow-hidden">
+    <section
+      id="mind"
+      className="min-h-screen py-20 px-6 md:px-12 lg:px-24 flex items-center relative overflow-hidden"
+    >
       {/* Decorative background elements */}
       <motion.div
         animate={{
           y: [0, -20, 0],
           opacity: [0.3, 0.6, 0.3],
         }}
-        transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        transition={{
+          duration: 5,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
         className="absolute top-40 right-10 w-20 h-20 border-4 border-primary/10 rounded-full"
       />
       <motion.div
@@ -19,7 +27,11 @@ export function MindSection() {
           y: [0, 30, 0],
           rotate: [0, 45, 0],
         }}
-        transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        transition={{
+          duration: 7,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
         className="absolute bottom-40 left-10 w-32 h-32 border-2 border-primary/5 rounded-lg"
       />
 
@@ -31,7 +43,9 @@ export function MindSection() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-4xl font-bold tracking-tight mb-4">The Mind Behind Code</h2>
+          <h2 className="text-4xl font-bold tracking-tight mb-4">
+            The Mind Behind Code
+          </h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
@@ -63,11 +77,14 @@ export function MindSection() {
             whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
-            className="bg-gradient-to-r from-secondary/80 to-secondary/30 p-8 rounded-2xl border-l-4 border-primary mt-8 shadow-lg backdrop-blur-sm"
+            className="flex flex-col gap-5 from-secondary/80 to-secondary/30 p-8 rounded-2xl border-l-4 border-primary mt-8 shadow-lg backdrop-blur-sm"
           >
             <p className="text-xl font-medium text-foreground italic">
-              “문제 해결은 코드가 아니라 기준에서 시작되며, 그 기준은 맥락과 상황을 깊게 이해하는 데서 만들어진다.”
+              “문제 해결은 코드가 아니라 기준에서 시작되며, 그 기준은 맥락과
+              상황을 깊게 이해하는 데서 만들어진다.”
             </p>
+
+            <CodeDemo delay={1000} duration={20000} />
           </motion.div>
 
           <motion.p
@@ -76,11 +93,11 @@ export function MindSection() {
             transition={{ delay: 0.8, duration: 1 }}
             className="mt-6 font-medium text-foreground"
           >
-            앞으로도 단순한 기능 구현을 넘어, 비즈니스와 기술 사이의 접점을 이해하고 올바르게 선택할 줄 아는 개발자로
-            성장해 나가겠습니다.
+            앞으로도 단순한 기능 구현을 넘어, 비즈니스와 기술 사이의 접점을
+            이해하고 올바르게 선택할 줄 아는 개발자로 성장해 나가겠습니다.
           </motion.p>
         </div>
       </div>
     </section>
-  )
+  );
 }

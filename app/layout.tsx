@@ -5,12 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://pcr.me.kr"), // 실제 도메인으로 변경
 
   title: {
-    default: "박철련 | 프론트엔드 개발자 포트폴리오",
+    default: "박철련 | 포트폴리오",
     template: "%s | 박철련",
   },
 
-  description:
-    "React, Next.js, TypeScript 기반 웹 서비스를 만드는 프론트엔드 개발자 박철련 포트폴리오.",
+  description: "가치를 만드는 개발자 박철련입니다.",
 
   keywords: [
     "개발자",
