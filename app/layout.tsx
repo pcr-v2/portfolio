@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pcr.me.kr"), // 실제 도메인으로 변경
@@ -93,6 +94,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className="font-sans antialiased">
         {/* Schema.org 구조화된 데이터 (네이버 + 구글 SEO 강화) */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -107,6 +109,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );

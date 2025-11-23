@@ -67,8 +67,8 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col md:flex-row overflow-x-hidden">
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border p-4 flex justify-between items-center">
+    <div className="min-h-screen bg-background text-foreground flex flex-col xl:flex-row overflow-x-hidden">
+      <div className="xl:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border p-4 flex justify-between items-center">
         <div className="font-bold text-xl tracking-tighter">
           PORTFOLIO<span className="text-primary">.</span>
         </div>
@@ -128,7 +128,7 @@ export default function Portfolio() {
         scrollToSection={scrollToSection}
       />
 
-      <main className="flex-1 md:ml-64 lg:ml-80 w-full transition-all duration-300">
+      <main className="flex-1 xl:ml-80 w-full transition-all duration-300">
         <AboutSection />
         <ProjectsSection />
         <MindSection />

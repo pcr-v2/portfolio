@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { User, Briefcase, Brain, Mail, Github } from "lucide-react"
+import { motion } from "framer-motion";
+import { User, Briefcase, Brain, Mail, Github } from "lucide-react";
 
 interface SidebarProps {
-  activeSection: string
-  scrollToSection: (section: string) => void
+  activeSection: string;
+  scrollToSection: (section: string) => void;
 }
 
 export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
@@ -14,15 +14,20 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
     { id: "projects", label: "Projects", icon: Briefcase },
     { id: "mind", label: "Mind", icon: Brain },
     { id: "contact", label: "Contact", icon: Mail },
-  ]
+  ];
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-0 h-screen w-64 lg:w-80 flex-col justify-between border-r border-border bg-background p-8 z-40">
+    <aside className="hidden xl:flex fixed left-0 top-0 h-screen w-64 xl:w-80 flex-col justify-between border-r border-border bg-background p-8 z-40">
       <div>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, type: "spring", stiffness: 260, damping: 20 }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
           className="mb-12"
         >
           <motion.h1
@@ -43,16 +48,32 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
               key={item.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 260, damping: 20 }}
-              whileHover={{ scale: 1.05, x: 10, backgroundColor: "rgba(49, 150, 255, 0.1)" }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+              whileHover={{
+                scale: 1.05,
+                x: 10,
+                backgroundColor: "rgba(49, 150, 255, 0.1)",
+              }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection(item.id)}
               className={`cursor-pointer group flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                activeSection === item.id ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground"
+                activeSection === item.id
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <item.icon
-                className={`w-4 h-4 transition-transform duration-300 ${activeSection === item.id ? "text-primary scale-110" : "group-hover:text-primary group-hover:rotate-12 group-hover:scale-110"}`}
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  activeSection === item.id
+                    ? "text-primary scale-110"
+                    : "group-hover:text-primary group-hover:rotate-12 group-hover:scale-110"
+                }`}
               />
               {item.label}
               {activeSection === item.id && (
@@ -70,7 +91,13 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 260, damping: 20 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.4,
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
         className="flex gap-4"
       >
         <motion.a
@@ -93,5 +120,5 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
         </motion.a>
       </motion.div>
     </aside>
-  )
+  );
 }

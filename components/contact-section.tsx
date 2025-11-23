@@ -1,20 +1,42 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Mail, Send } from "lucide-react"
+import { sendEmail } from "@/app/action/sendMailAction";
+import { motion } from "framer-motion";
+import { Mail, Send } from "lucide-react";
+import { useActionState, useEffect } from "react";
+import { toast } from "sonner";
 
 export function ContactSection() {
+  const [state, formAction, isPending] = useActionState(sendEmail, null);
+
+  useEffect(() => {
+    if (state?.message == null) {
+      return;
+    }
+
+    if (state.code === "SUCCESS") {
+      toast.success("이메일이 성공적으로 전송되었습니다.");
+    } else {
+      toast.error("이메일 전송에 문제가 생겼습니다.");
+    }
+  }, [state]);
+
   return (
-    <section id="contact" className="min-h-screen py-20 px-6 md:px-12 lg:px-24 flex items-center bg-secondary/30">
+    <section
+      id="contact"
+      className="min-h-screen py-20 px-6 md:px-12 xl:px-24 flex items-center bg-secondary/30"
+    >
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           >
-            <h2 className="text-4xl font-bold tracking-tight mb-6">Thank you</h2>
+            <h2 className="text-4xl font-bold tracking-tight mb-6">
+              Thank you
+            </h2>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -24,7 +46,8 @@ export function ContactSection() {
               같이 가치를 만들어 가고 싶습니다.
               <br />제 포트폴리오를 봐주셔서 감사합니다.
               <br />
-              새로운 도전을 두려워하지 않고, 더 나은 사용자 경험을 위해 끊임없이 고민하고 실행하겠습니다.
+              새로운 도전을 두려워하지 않고, 더 나은 사용자 경험을 위해 끊임없이
+              고민하고 실행하겠습니다.
             </motion.p>
 
             <div className="space-y-8">
@@ -53,106 +76,135 @@ export function ContactSection() {
             </div>
           </motion.div>
 
+          {/* 폼 영역 */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100, delay: 0.2 }}
+            transition={{
+              duration: 0.6,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.2,
+            }}
             className="bg-background p-8 rounded-3xl border border-border shadow-lg hover:shadow-xl transition-shadow duration-500"
           >
-            <form className="space-y-6">
+            <form action={formAction} className="space-y-6">
+              {/* 이름 + 이메일 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-2"
-                >
+                <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
-                    Name
+                    이름
                   </label>
                   <input
                     type="text"
                     id="name"
+                    name="name" // ★ 필수
                     className="w-full px-4 py-3 rounded-xl bg-secondary border-2 border-transparent focus:border-primary focus:bg-background transition-all outline-none hover:bg-secondary/80"
-                    placeholder="Name"
+                    placeholder="이름을 입력해주세요."
                   />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="space-y-2"
-                >
+                </div>
+
+                <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
-                    Email
+                    이메일
                   </label>
                   <input
                     type="email"
                     id="email"
+                    name="email" // ★ 필수
                     className="w-full px-4 py-3 rounded-xl bg-secondary border-2 border-transparent focus:border-primary focus:bg-background transition-all outline-none hover:bg-secondary/80"
-                    placeholder="Email"
+                    placeholder="이메일을 입력해주세요."
                   />
-                </motion.div>
+                </div>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="space-y-2"
-              >
-                <label htmlFor="subject" className="text-sm font-medium">
-                  Subject
+              {/* 제목 */}
+              <div className="space-y-2">
+                <label htmlFor="title" className="text-sm font-medium">
+                  제목
                 </label>
                 <input
                   type="text"
-                  id="subject"
+                  id="title"
+                  name="title" // ★ 필수
                   className="w-full px-4 py-3 rounded-xl bg-secondary border-2 border-transparent focus:border-primary focus:bg-background transition-all outline-none hover:bg-secondary/80"
-                  placeholder="Subject"
+                  placeholder="제목을 입력해주세요."
                 />
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="space-y-2"
-              >
-                <label htmlFor="message" className="text-sm font-medium">
-                  Message
+              {/* 내용 */}
+              <div className="space-y-2">
+                <label htmlFor="content" className="text-sm font-medium">
+                  내용
                 </label>
                 <textarea
-                  id="message"
+                  id="content"
+                  name="content" // ★ 필수
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl bg-secondary border-2 border-transparent focus:border-primary focus:bg-background transition-all outline-none resize-none hover:bg-secondary/80"
-                  placeholder="Message"
+                  placeholder="내용을 입력해주세요."
                 />
-              </motion.div>
+              </div>
 
+              {/* 버튼 */}
               <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(49, 150, 255, 0.3)" }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="w-full py-4 bg-primary text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer relative overflow-hidden group"
+                disabled={isPending}
+                whileHover={
+                  isPending
+                    ? {}
+                    : {
+                        scale: 1.02,
+                        boxShadow: "0 20px 40px rgba(49,150,255,0.3)",
+                      }
+                }
+                whileTap={isPending ? {} : { scale: 0.98 }}
+                className={`
+    w-full py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2
+    relative overflow-hidden group
+    ${
+      isPending
+        ? "bg-gray-400 cursor-not-allowed"
+        : "bg-primary text-white cursor-pointer"
+    }
+  `}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Send Message
-                  <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  {isPending ? (
+                    <>
+                      전송 중입니다... 잠시만 기다려주세요
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 1,
+                          ease: "linear",
+                        }}
+                      >
+                        <Send className="w-4 h-4" />
+                      </motion.span>
+                    </>
+                  ) : (
+                    <>
+                      이메일 보내기
+                      <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </>
+                  )}
                 </span>
-                <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.5 }}
-                />
+
+                {!isPending && (
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.5 }}
+                  />
+                )}
               </motion.button>
             </form>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

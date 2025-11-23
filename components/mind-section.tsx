@@ -7,7 +7,7 @@ export function MindSection() {
   return (
     <section
       id="mind"
-      className="min-h-screen py-20 px-6 md:px-12 lg:px-24 flex items-center relative overflow-hidden"
+      className="min-h-screen py-20 px-6 md:px-12 xl:px-24 flex items-center relative overflow-hidden"
     >
       {/* Decorative background elements */}
       <motion.div
@@ -52,6 +52,13 @@ export function MindSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="h-1 bg-primary rounded-full mb-8"
           />
+
+          <motion.span
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="w-20 h-1 flex-1 bg-gradient-to-r from-primary/50 to-transparent rounded-full origin-left"
+          />
         </motion.div>
 
         <div className="space-y-8 text-lg leading-relaxed text-muted-foreground">
@@ -77,11 +84,11 @@ export function MindSection() {
             whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
-            className="flex flex-col gap-5 from-secondary/80 to-secondary/30 p-8 rounded-2xl border-l-4 border-primary mt-8 shadow-lg backdrop-blur-sm"
+            className="flex flex-col gap-5 from-secondary/80 to-secondary/30 p-8 rounded-2xl mt-8 border border-slate-300 shadow-neutral-400 shadow-lg backdrop-blur-sm"
           >
             <p className="text-xl font-medium text-foreground italic">
-              “문제 해결은 코드가 아니라 기준에서 시작되며, 그 기준은 맥락과
-              상황을 깊게 이해하는 데서 만들어진다.”
+              “문제 해결은 코드가 아니라 기준에서 시작되며, <br />그 기준은
+              맥락과 상황을 깊게 이해하는 데서 만들어진다.”
             </p>
 
             <CodeDemo delay={1000} duration={20000} />
