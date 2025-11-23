@@ -30,7 +30,16 @@ const projects = [
     title: "Art-bonbon",
     category: "B2C / Next.js",
     period: "2024.01 ~ Now",
-    images: ["/test.png", "/test.png", "/test.png"],
+    images: [
+      "/p1/p1-1.png",
+      "/p1/p1-2.png",
+      "/p1/p1-3.png",
+      "/p1/p1-4.png",
+      "/p1/p1-5.png",
+      "/p1/p1-6.png",
+      "/p1/p1-7.png",
+      "/p1/p1-8.png",
+    ],
     color: "bg-blue-500",
     description:
       "드로잉 수업 커리큘럼 소개, 결제 및 일정 관리를 제공하는 B2C 사용자 웹사이트.",
@@ -72,7 +81,14 @@ const projects = [
     title: "Tool-Manager",
     category: "Backoffice / Migration",
     period: "2024.07 ~ 2024.12",
-    images: ["/finance-growth.png", "/finance-growth.png"],
+    images: [
+      "/p3/p3-1.png",
+      "/p3/p3-2.png",
+      "/p3/p3-3.png",
+      "/p3/p3-4.png",
+      "/p3/p3-5.png",
+      "/p3/p3-6.png",
+    ],
     color: "bg-emerald-500",
     description: "드로잉툴 환경설정을 관리하는 내부 백오피스 리뉴얼 프로젝트.",
     tech: "TypeScript, React(v18), Axios, Zustand, RadixUI, Emotion-Styled, Dnd-Kit",
@@ -92,7 +108,17 @@ const projects = [
     title: "School-Student",
     category: "B2G / Interactive",
     period: "2025.05 ~ Now",
-    images: ["/interconnected-social-network.png"],
+    images: [
+      "/p4/p4-1.png",
+      "/p4/p4-2.png",
+      "/p4/p4-3.png",
+      "/p4/p4-4.png",
+      "/p4/p4-5.png",
+      "/p4/p4-6.png",
+      "/p4/p4-7.png",
+      "/p4/p4-8.png",
+      "/p4/p4-9.png",
+    ],
     color: "bg-purple-500",
     description:
       "색채 심리검사·AI 프롬프트 그리기 등 인터랙션을 제공하는 학생용 웹앱.",
@@ -113,7 +139,13 @@ const projects = [
     title: "School-Teacher",
     category: "B2G / Admin",
     period: "2025.08 ~ Now",
-    images: ["/diverse-travelers-world-map.png"],
+    images: [
+      "/p5/p5-1.png",
+      "/p5/p5-2.png",
+      "/p5/p5-3.png",
+      "/p5/p5-4.png",
+      "/p5/p5-5.png",
+    ],
     color: "bg-orange-500",
     description: "수업 이용권 결제·수업 관리를 위한 관리자 웹 유지보수.",
     tech: "TypeScript, Next.js (v15), Zustand, React-Query, Formik, Chart.js, TailwindCSS",
@@ -130,8 +162,20 @@ const projects = [
     category: "Personal / Full Stack",
     period: "2025.07 ~ Now",
     images: [
-      "/creative-portfolio-layout.png",
-      "/creative-portfolio-layout.png",
+      "/p6/p6-1.png",
+      "/p6/p6-2.png",
+      "/p6/p6-3.png",
+      "/p6/p6-4.png",
+      "/p6/p6-5.png",
+      "/p6/p6-6.png",
+      "/p6/p6-7.png",
+      "/p6/p6-8.png",
+      "/p6/p6-9.png",
+      "/p6/p6-10.png",
+      "/p6/p6-11.png",
+      "/p6/p6-12.png",
+      "/p6/p6-13.png",
+      "/p6/p6-14.png",
     ],
     color: "bg-pink-500",
     description:
@@ -155,6 +199,12 @@ const projects = [
    📌 메인 섹션 컴포넌트
 --------------------------------------- */
 export function ProjectsSection() {
+  const P6_BLUR_INDEXES = [6, 7, 8, 9, 10, 11, 12, 13];
+
+  function shouldBlur(projectId: number, index: number) {
+    return projectId === 6 && P6_BLUR_INDEXES.includes(index);
+  }
+
   return (
     <section
       id="projects"
@@ -231,7 +281,9 @@ export function ProjectsSection() {
                                 src={src}
                                 alt={project.title}
                                 fill
-                                className="object-cover"
+                                className={`object-cover ${
+                                  shouldBlur(project.id, i) ? "blur-[1px]" : ""
+                                }`}
                               />
                             </div>
                           </CarouselItem>
@@ -307,7 +359,9 @@ export function ProjectsSection() {
                                 src={src}
                                 alt={project.title}
                                 fill
-                                className="object-cover"
+                                className={`object-cover ${
+                                  shouldBlur(project.id, i) ? "blur-[1px]" : ""
+                                }`}
                               />
                             </div>
                           </CarouselItem>

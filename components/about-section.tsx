@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Database, Server, PenTool } from "lucide-react";
+import {
+  ArrowRight,
+  Code,
+  Database,
+  Server,
+  PenTool,
+  DownloadIcon,
+} from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -131,6 +138,80 @@ export function AboutSection() {
             >
               Contact Me
             </motion.button>
+
+            {/* 우측 다운로드 칩 */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="flex flex-wrap gap-3"
+            >
+              {/* 1) 이력서 */}
+              <motion.a
+                href="/parkcheolryeon_resume.pdf"
+                download
+                whileHover={{
+                  scale: 1.08,
+                  backgroundColor: "rgba(49, 150, 255, 0.08)",
+                  boxShadow: "0 4px 20px rgba(49,150,255,0.2)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-2 rounded-full border border-primary/30 text-primary font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+              >
+                <motion.span
+                  animate={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  📄
+                </motion.span>
+                이력서
+                <DownloadIcon className="text-primary w-3 h-3" />
+              </motion.a>
+
+              {/* 2) 자소서 */}
+              <motion.a
+                href="/parkcheolryeon_self_introduce.pdf"
+                download
+                whileHover={{
+                  scale: 1.08,
+                  backgroundColor: "rgba(255, 180, 0, 0.08)",
+                  boxShadow: "0 4px 20px rgba(255,180,0,0.25)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-2 rounded-full border border-yellow-500/30 text-yellow-600 font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+              >
+                <motion.span
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 2.2 }}
+                >
+                  ✏️
+                </motion.span>
+                자기소개서
+                <DownloadIcon className="text-yellow-600 w-3 h-3" />
+              </motion.a>
+
+              {/* 3) 포트폴리오 */}
+              <motion.a
+                href="/parkcheolryeon_portfolio.pdf"
+                download
+                whileHover={{
+                  scale: 1.08,
+                  backgroundColor: "rgba(0, 200, 150, 0.08)",
+                  boxShadow: "0 4px 20px rgba(0,200,150,0.25)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-600 font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+              >
+                <motion.span
+                  animate={{ rotate: [0, -12, 12, 0] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  🚀
+                </motion.span>
+                포트폴리오
+                <DownloadIcon className="text-emerald-600 w-3 h-3" />
+              </motion.a>
+            </motion.div>
           </motion.div>
         </motion.div>
 

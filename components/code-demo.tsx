@@ -16,18 +16,22 @@ interface CodeDemoProps {
 export const CodeDemo = ({ duration, delay }: CodeDemoProps) => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
 
-  // 화면에 얼마나 보여야 "보이는 중"으로 판단할지 amount로 설정 (0 ~ 1)
+  // 화면에 60% 정도 보이면 in-view 처리
   const isInView = useInView(containerRef, {
-    amount: 0.7, // 40% 정도 보이면 in-view 처리
-    margin: "0px 0px -20% 0px",
+    amount: 0.6,
   });
 
-  // 애니메이션 리셋을 위한 key
   const [playKey, setPlayKey] = React.useState(0);
+  const [shouldPlay, setShouldPlay] = React.useState(false);
 
   React.useEffect(() => {
     if (isInView) {
-      // 화면에 다시 들어올 때마다 재생을 위해 key 증가
+      // 뷰포트 안으로 들어오면 → 재생 시작
+      setShouldPlay(true);
+      setPlayKey((prev) => prev + 1);
+    } else {
+      // 뷰포트 완전히 벗어나면 → 즉시 초기화
+      setShouldPlay(false);
       setPlayKey((prev) => prev + 1);
     }
   }, [isInView]);
@@ -39,16 +43,26 @@ export const CodeDemo = ({ duration, delay }: CodeDemoProps) => {
         className="w-full h-[372px]"
         code={`'use client';
  
-import * as React from 'react';
+import { useMemo } from "react";
   
 type MyComponentProps = {
   myProps: string;
-} & React.ComponentProps<'div'>;
+}
   
 function MyComponent(props: MyComponentProps) {
+  const mindset = useMemo(() => [
+    "이유 없이 기술을 쓰지 않는 사람",
+    "사용자의 하루를 상상하는 사람",
+    "팀의 기준을 함께 만드는 사람",
+  ], []);
+
   return (
     <div {...props}>
-      <p>“문제 해결은 코드가 아니라 기준에서 시작되며, 그 기준은 맥락과 상황을 깊게 이해하는 데서 만들어진다.”</p>
+      <p>"가치를 만들어가는 개발자란,</p>
+      {mindset.map((mind, index) => (
+        <p key={'{mind}+{index}'}>{mind}</p>
+      ))}
+      <p>이라고 생각합니다."</p>
     </div>
   );
 }
