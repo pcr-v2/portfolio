@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Briefcase, Brain, Mail, Github } from "lucide-react";
+import {
+  User,
+  Briefcase,
+  Brain,
+  Mail,
+  Github,
+  DownloadIcon,
+} from "lucide-react";
 
 interface SidebarProps {
   activeSection: string;
@@ -89,34 +96,81 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-          delay: 0.4,
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
-        className="flex gap-4"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="flex gap-1 justify-center items-start"
       >
+        {/* 이력서 */}
         <motion.a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, rotate: 5 }}
-          whileTap={{ scale: 0.9 }}
-          className="cursor-pointer p-2 rounded-full bg-secondary text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+          href="/parkcheolryeon_resume.pdf"
+          download
+          whileHover={{
+            scale: 1.06,
+            backgroundColor: "rgba(49, 150, 255, 0.1)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="px-2.5 py-1.5 rounded-[4px] border border-primary/30 text-primary 
+               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               transition-all"
         >
-          <Github className="w-4 h-4" />
+          <motion.span
+            animate={{ rotate: [0, -10, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="text-sm leading-none"
+          >
+            📄
+          </motion.span>
+          이력서
+          <DownloadIcon className="w-3 h-3" />
         </motion.a>
+
+        {/* 자소서 */}
         <motion.a
-          href="mailto:frontendtt@gmail.com"
-          whileHover={{ scale: 1.2, rotate: 5 }}
-          whileTap={{ scale: 0.9 }}
-          className="cursor-pointer p-2 rounded-full bg-secondary text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+          href="/parkcheolryeon_self_introduce.pdf"
+          download
+          whileHover={{
+            scale: 1.06,
+            backgroundColor: "rgba(255, 180, 0, 0.1)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="px-2.5 py-1.5 rounded-[4px] border border-yellow-500/30 text-yellow-600
+               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               transition-all"
         >
-          <Mail className="w-4 h-4" />
+          <motion.span
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 2.2 }}
+            className="text-sm leading-none"
+          >
+            ✏️
+          </motion.span>
+          자기소개서
+          <DownloadIcon className="w-3 h-3" />
+        </motion.a>
+
+        {/* 포트폴리오 */}
+        <motion.a
+          href="/parkcheolryeon_portfolio.pdf"
+          download
+          whileHover={{
+            scale: 1.06,
+            backgroundColor: "rgba(0, 200, 150, 0.1)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="px-2.5 py-1.5 rounded-[4px] border border-emerald-500/30 text-emerald-600
+               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               transition-all"
+        >
+          <motion.span
+            animate={{ rotate: [0, -12, 12, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="text-sm leading-none"
+          >
+            🚀
+          </motion.span>
+          포트폴리오
+          <DownloadIcon className="w-3 h-3" />
         </motion.a>
       </motion.div>
     </aside>
