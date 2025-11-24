@@ -61,7 +61,7 @@ const projects = [
     title: "Ecole-Admin",
     category: "B2B / Admin",
     period: "2024.05 ~ 2024.07",
-    images: ["/chat-app.jpg", "/chat-app.jpg", "/chat-app.jpg"],
+    images: ["/p2/p2-1.png", "/p2/p2-2.png", "/p2/p2-3.png", "/p2/p2-4.png"],
     color: "bg-indigo-500",
     description: "학원·학생 데이터를 효율적으로 관리하기 위한 B2B 관리자 웹.",
     tech: "Next.js (v14 PageRouter), TypeScript, Server Action, Mui, Emotion-Styled, Zod, Prisma",
@@ -199,12 +199,6 @@ const projects = [
    📌 메인 섹션 컴포넌트
 --------------------------------------- */
 export function ProjectsSection() {
-  const P6_BLUR_INDEXES = [6, 7, 8, 9, 10, 11, 12, 13];
-
-  function shouldBlur(projectId: number, index: number) {
-    return projectId === 6 && P6_BLUR_INDEXES.includes(index);
-  }
-
   return (
     <section
       id="projects"
@@ -281,9 +275,7 @@ export function ProjectsSection() {
                                 src={src}
                                 alt={project.title}
                                 fill
-                                className={`object-cover ${
-                                  shouldBlur(project.id, i) ? "blur-[1px]" : ""
-                                }`}
+                                className="object-cover"
                               />
                             </div>
                           </CarouselItem>
@@ -359,9 +351,7 @@ export function ProjectsSection() {
                                 src={src}
                                 alt={project.title}
                                 fill
-                                className={`object-cover ${
-                                  shouldBlur(project.id, i) ? "blur-[1px]" : ""
-                                }`}
+                                className="object-cover"
                               />
                             </div>
                           </CarouselItem>
