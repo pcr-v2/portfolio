@@ -83,7 +83,7 @@ export default function Portfolio() {
               <Menu />
             </motion.button>
           </SheetTrigger>
-          <SheetContent side="left">
+          <SheetContent side="left" className="min-h-full">
             <SheetHeader>
               <SheetTitle className="text-2xl font-bold tracking-tighter text-left">
                 PORTFOLIO<span className="text-primary">.</span>
@@ -123,7 +123,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-20 flex gap-3 justify-center items-start"
+              className="mt-20 flex gap-1 justify-center items-start flex-wrap"
             >
               {/* 이력서 */}
               <motion.a
@@ -134,14 +134,14 @@ export default function Portfolio() {
                   backgroundColor: "rgba(49, 150, 255, 0.1)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-2.5 py-1.5 rounded-[4px] border border-primary/30 text-primary 
+                className="px-1 py-1.5 rounded-[4px] border border-primary/30 text-primary 
                text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
               >
                 <motion.span
                   animate={{ rotate: [0, -10, 10, 0] }}
                   transition={{ repeat: Infinity, duration: 2 }}
-                  className="text-sm leading-none"
+                  className="text-xs leading-none"
                 >
                   📄
                 </motion.span>
@@ -158,14 +158,14 @@ export default function Portfolio() {
                   backgroundColor: "rgba(255, 180, 0, 0.1)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-2.5 py-1.5 rounded-[4px] border border-yellow-500/30 text-yellow-600
+                className="px-1 py-1.5 rounded-[4px] border border-yellow-500/30 text-yellow-600
                text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
               >
                 <motion.span
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 2.2 }}
-                  className="text-sm leading-none"
+                  className="text-xs leading-none"
                 >
                   ✏️
                 </motion.span>
@@ -182,14 +182,14 @@ export default function Portfolio() {
                   backgroundColor: "rgba(0, 200, 150, 0.1)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-2.5 py-1.5 rounded-[4px] border border-emerald-500/30 text-emerald-600
+                className="px-1 py-1.5 rounded-[4px] border border-emerald-500/30 text-emerald-600
                text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
               >
                 <motion.span
                   animate={{ rotate: [0, -12, 12, 0] }}
                   transition={{ repeat: Infinity, duration: 2 }}
-                  className="text-sm leading-none"
+                  className="text-xs leading-none"
                 >
                   🚀
                 </motion.span>
