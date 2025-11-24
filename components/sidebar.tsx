@@ -111,7 +111,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-primary/30 text-primary 
-               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
@@ -135,7 +135,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-yellow-500/30 text-yellow-600
-               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
@@ -159,7 +159,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-emerald-500/30 text-emerald-600
-               text-[8px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
