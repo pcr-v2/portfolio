@@ -27,6 +27,138 @@ import Autoplay from "embla-carousel-autoplay";
 const projects = [
   {
     id: 1,
+    title: "Yangchi-King",
+    category: "Personal / Full Stack",
+    period: "2025.07 ~ Now",
+    images: [
+      "/p6/p6-1.png",
+      "/p6/p6-2.png",
+      "/p6/p6-3.png",
+      "/p6/p6-4.png",
+      "/p6/p6-5.png",
+      "/p6/p6-6.png",
+      "/p6/p6-7.png",
+      "/p6/p6-8.png",
+      "/p6/p6-9.png",
+      "/p6/p6-10.png",
+      "/p6/p6-11.png",
+      "/p6/p6-12.png",
+      "/p6/p6-13.png",
+      "/p6/p6-14.png",
+    ],
+    color: "bg-pink-500",
+    description:
+      "학생 양치 기록/통계를 관리하는 교육용 웹 서비스(1인 풀스택 개발).",
+    tech: "Next.js, Server Action, React-Query, Mui, Chart.js, AWS EC2, PM2",
+
+    role: [
+      "프론트개발-백엔드개발–배포–운영까지 전과정 단독 수행",
+      "Next.js 기반 단순 라우팅 구조 설계 및 React-Query 캐싱 최적화",
+      "Android 전용 WebView APK 패키징으로 기기 환경 제약 대응(Expo 기반 React-Native)",
+      "EC2 + PM2 + GitHub Actions로 무중단 배포 구조 구축",
+      "선생님 VOC 기반 기능 고도화(차트 커스텀 시각화/통계 다운로드/전체 조회 등)",
+    ],
+    achievements: [
+      "10개 학교, 6,000명 이상 실사용 운영 안정화",
+      "Next기반의 웹뷰 형식의 구조로 사용자의 단말 환경에 적합한 설치형 apk 제공",
+      "운영 대응 속도 약 30% 단축 (CI/CD + 로깅 기반 개선)",
+      "Chart.js를 커스텀하여 선생님의 보고서 제출에 용이한 통합 차트 제공으로 현장 업무 효율 향상",
+      "실서비스 운영 책임 경험으로 안정성 우선 설계 기준 확립",
+    ],
+  },
+  {
+    id: 2,
+    title: "School-Student",
+    category: "B2G / Interactive",
+    period: "2025.05 ~ Now",
+    images: [
+      "/p4/p4-1.png",
+      "/p4/p4-2.png",
+      "/p4/p4-3.png",
+      "/p4/p4-4.png",
+      "/p4/p4-5.png",
+      "/p4/p4-6.png",
+      "/p4/p4-7.png",
+      "/p4/p4-8.png",
+      "/p4/p4-9.png",
+    ],
+    color: "bg-purple-500",
+    description:
+      "색채 심리검사·AI 프롬프트 그리기 등 인터랙션을 제공하는 학생용 웹앱.",
+    tech: "TypeScript, Next.js (v15), Zustand, React-Query, TailwindCSS, Framer Motion, Zod",
+
+    role: [
+      "색채심리검사 및 주요 인터랙션 UI 전담 설계·개발",
+      "Framer Motion을 활용한 카드 합성·회전·Glow 애니메이션 구현",
+      "Typewriter 등 핵심 연출 컴포넌트 공통화",
+      "기획/디자인과 초기 협업을 통한 사용자 경험 정의",
+    ],
+    achievements: [
+      "검사 경험을 설문형에서 게임형 몰입 경험으로 개선",
+      "Framer Motion 기반 애니메이션 구조를 활용하여 설문형 검사에서 게임형 몰입 경험으로 개선",
+      "애니메이션 기반 UX에 대한 긍정적 실사용 평가",
+      "공통 컴포넌트 도입으로 신규 스테이지/기획 대응 속도 개선",
+    ],
+  },
+  {
+    id: 3,
+    title: "Tool-Manager",
+    category: "Backoffice / Migration",
+    period: "2024.07 ~ 2024.12",
+    images: [
+      "/p3/p3-1.png",
+      "/p3/p3-2.png",
+      "/p3/p3-3.png",
+      "/p3/p3-4.png",
+      "/p3/p3-5.png",
+      "/p3/p3-6.png",
+    ],
+    color: "bg-emerald-500",
+    description: "드로잉툴 환경설정을 관리하는 내부 백오피스 리뉴얼 프로젝트.",
+    tech: "TypeScript, React(v18), Axios, Zustand, RadixUI, Emotion-Styled, Dnd-Kit",
+
+    role: [
+      "Vue2 레거시 분석 → React 전면 재설계 제안 및 구현 주도",
+      "Zustand 기반 전역 Config Store 일원화 및 모듈 분리",
+      "Zod 스키마로 타입 정합성 및 데이터 검증 구조 확립",
+      "브러시·색상 인터랙션을 위한 Dnd-Kit UI 구현",
+    ],
+    achievements: [
+      "Dnd-Kit 기반 순서 변경 UI 도입하여 UX 증대",
+      "Zustand + TS 타입 정합성 강화하여 상태 불일치/반복 오류를 구조적으로 해결",
+      "프리셋 기능으로 작업 효율 증가",
+    ],
+  },
+
+  {
+    id: 4,
+    title: "School-Teacher",
+    category: "B2G / Admin",
+    period: "2025.08 ~ Now",
+    images: [
+      "/p5/p5-1.png",
+      "/p5/p5-2.png",
+      "/p5/p5-3.png",
+      "/p5/p5-4.png",
+      "/p5/p5-5.png",
+    ],
+    color: "bg-orange-500",
+    description: "수업 이용권 결제·수업 관리를 위한 관리자 웹 유지보수.",
+    tech: "TypeScript, Next.js (v15), Zustand, React-Query, Formik, Chart.js, TailwindCSS",
+    role: [
+      "VOC 수집 기반 UI/UX 개선 작업 주도",
+      "Alive Ping + DeadCount 기반 네트워크 상태 감지 훅 설계 및 구현",
+      "폴링 기반 세션 유효성 검증 로직 도입 및 자동 로그아웃 처리",
+    ],
+    achievements: [
+      "이용권/수업관리 사용성 개선으로 사용 혼선 감소 및 VOC 해소",
+      "네트워크 상태를 정밀하게 감지해 UI fallback 및 오류 대응 정확성 향상",
+      "세션 만료 자동 감지로 보안성과 UX를 동시 강화",
+      "인수인계된 레거시 기반 코드 분석 및 개선 사이클 안정화",
+    ],
+  },
+  {
+    id: 5,
     title: "Art-bonbon",
     category: "B2C / Next.js",
     period: "2024.01 ~ Now",
@@ -57,7 +189,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 6,
     title: "Ecole-Admin",
     category: "B2B / Admin",
     period: "2024.05 ~ 2024.07",
@@ -66,131 +198,14 @@ const projects = [
     description: "학원·학생 데이터를 효율적으로 관리하기 위한 B2B 관리자 웹.",
     tech: "Next.js (v14 PageRouter), TypeScript, Server Action, Mui, Emotion-Styled, Zod, Prisma",
     role: [
-      "CRUD UI 구현",
-      "CSV 대량 등록 기능 구현",
-      "콘텐츠 등록 UI 개발",
-      "필터/검색 기능",
+      "CSV 업로드 + Zod 검증으로 수작업 자동화 구조 구현",
+      "Server Action 기반 데이터 반영 및 오류 관리",
+      "학원 운영 흐름 기반 UI 구성(필터/검색/등록)",
     ],
     achievements: [
-      "CSV 파싱 + Zod 자동 검증 구조",
-      "Server Action 기반 대량 처리",
-    ],
-  },
-  {
-    id: 3,
-    title: "Tool-Manager",
-    category: "Backoffice / Migration",
-    period: "2024.07 ~ 2024.12",
-    images: [
-      "/p3/p3-1.png",
-      "/p3/p3-2.png",
-      "/p3/p3-3.png",
-      "/p3/p3-4.png",
-      "/p3/p3-5.png",
-      "/p3/p3-6.png",
-    ],
-    color: "bg-emerald-500",
-    description: "드로잉툴 환경설정을 관리하는 내부 백오피스 리뉴얼 프로젝트.",
-    tech: "TypeScript, React(v18), Axios, Zustand, RadixUI, Emotion-Styled, Dnd-Kit",
-    role: [
-      "Vue 코드 React로 마이그레이션",
-      "브러시/배경지/레이어 UI 구현",
-      "프리셋 저장·불러오기 기능",
-    ],
-    achievements: [
-      "Dnd-Kit 기반 순서 변경 UI 도입하여 UX 증대",
-      "Zustand + TS 타입 정합성 강화",
-      "프리셋 기능으로 작업 효율 증가",
-    ],
-  },
-  {
-    id: 4,
-    title: "School-Student",
-    category: "B2G / Interactive",
-    period: "2025.05 ~ Now",
-    images: [
-      "/p4/p4-1.png",
-      "/p4/p4-2.png",
-      "/p4/p4-3.png",
-      "/p4/p4-4.png",
-      "/p4/p4-5.png",
-      "/p4/p4-6.png",
-      "/p4/p4-7.png",
-      "/p4/p4-8.png",
-      "/p4/p4-9.png",
-    ],
-    color: "bg-purple-500",
-    description:
-      "색채 심리검사·AI 프롬프트 그리기 등 인터랙션을 제공하는 학생용 웹앱.",
-    tech: "TypeScript, Next.js (v15), Zustand, React-Query, TailwindCSS, Framer Motion, Zod",
-    role: [
-      "색채검사 애니메이션 UI",
-      "애니메이션 인터랙션",
-      "Typewriter UI 컴포넌트",
-    ],
-    achievements: [
-      "Framer Motion 기반 애니메이션 구조를 활용하여 게임같은 몰입감있는 심리검사 개발",
-      "결과 화면 퍼블리싱 및 카드 등장·합성·회전 페이지 애니메이션 개발",
-      "공통 UI 컴포넌트화",
-    ],
-  },
-  {
-    id: 5,
-    title: "School-Teacher",
-    category: "B2G / Admin",
-    period: "2025.08 ~ Now",
-    images: [
-      "/p5/p5-1.png",
-      "/p5/p5-2.png",
-      "/p5/p5-3.png",
-      "/p5/p5-4.png",
-      "/p5/p5-5.png",
-    ],
-    color: "bg-orange-500",
-    description: "수업 이용권 결제·수업 관리를 위한 관리자 웹 유지보수.",
-    tech: "TypeScript, Next.js (v15), Zustand, React-Query, Formik, Chart.js, TailwindCSS",
-    role: ["UI/UX 개선", "페이지 기반 요청 구조", "네트워크 상태 감지 훅 개발"],
-    achievements: [
-      "사용자의 불편함을 주도적으로 찾아내어 개선 (이용권,수업관리 등의 UI/UX)",
-      "사용자 아이디어 제안 페이지 개발",
-      "/alive Ping 기반 네트워크 진단",
-    ],
-  },
-  {
-    id: 6,
-    title: "Yangchi-King",
-    category: "Personal / Full Stack",
-    period: "2025.07 ~ Now",
-    images: [
-      "/p6/p6-1.png",
-      "/p6/p6-2.png",
-      "/p6/p6-3.png",
-      "/p6/p6-4.png",
-      "/p6/p6-5.png",
-      "/p6/p6-6.png",
-      "/p6/p6-7.png",
-      "/p6/p6-8.png",
-      "/p6/p6-9.png",
-      "/p6/p6-10.png",
-      "/p6/p6-11.png",
-      "/p6/p6-12.png",
-      "/p6/p6-13.png",
-      "/p6/p6-14.png",
-    ],
-    color: "bg-pink-500",
-    description:
-      "학생 양치 기록/통계를 관리하는 교육용 웹 서비스(1인 풀스택 개발).",
-    tech: "Next.js, Server Action, React-Query, Mui, Chart.js, AWS EC2, PM2",
-    role: [
-      "학생용 안드로이드용 웹앱 개발",
-      "교사용 어드민 웹 개발",
-      "차트 커스텀 시각화",
-    ],
-    achievements: [
-      "Next기반의 웹뷰 형식의 구조로 사용자의 단말 환경에 적합한 설치형 apk 제공",
-      "Chart.js를 커스텀하여 선생님의 보고서 제출에 용이한 통합 차트 제공",
-      "EC2 + PM2 자동배포 구축",
-      "전국 10개 학교 6000명 사용중",
+      "등록 작업 시간 단축 및 운영 실수 감소",
+      "업무 흐름 개선 중심의 문제 해결 경험",
+      "B2B 기반 운영 제품의 개선 사이클 경험",
     ],
   },
 ];
@@ -397,9 +412,7 @@ export function ProjectsSection() {
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-bold mb-3">
-                        구현 의도 / 성과
-                      </h4>
+                      <h4 className="text-lg font-bold mb-3">성과</h4>
                       <ul className="space-y-2">
                         {project.achievements.map((item, i) => (
                           <li
