@@ -67,9 +67,9 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col xl:flex-row overflow-x-hidden">
-      <div className="xl:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border p-4 flex justify-between items-center">
-        <div className="font-bold text-xl tracking-tighter">
+    <div className="flex flex-col min-h-screen overflow-x-hidden bg-background text-foreground xl:flex-row">
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 border-b xl:hidden bg-background/80 backdrop-blur-md border-border">
+        <div className="text-xl font-bold tracking-tighter">
           PORTFOLIO<span className="text-primary">.</span>
         </div>
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -123,7 +123,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-20 flex gap-1 justify-center items-start flex-wrap"
+              className="flex flex-wrap items-start justify-center gap-1 mt-20"
             >
               {/* 이력서 */}
               <motion.a
@@ -145,7 +145,7 @@ export default function Portfolio() {
                 >
                   📄
                 </motion.span>
-                이력서
+                경력기술서
                 <DownloadIcon className="w-3 h-3" />
               </motion.a>
 
@@ -206,13 +206,13 @@ export default function Portfolio() {
         scrollToSection={scrollToSection}
       />
 
-      <main className="flex-1 xl:ml-80 w-full transition-all duration-300">
+      <main className="flex-1 w-full transition-all duration-300 xl:ml-80">
         <AboutSection />
         <ProjectsSection />
         <MindSection />
         <ContactSection />
 
-        <footer className="py-8 px-6 md:px-12 border-t border-border text-sm text-muted-foreground">
+        <footer className="px-6 py-8 text-sm border-t md:px-12 border-border text-muted-foreground">
           <p>© 2025 Park Cheol Ryeon. All rights reserved.</p>
         </footer>
       </main>

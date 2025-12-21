@@ -217,7 +217,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="min-h-screen py-20 px-6 md:px-12 xl:px-24 bg-secondary/30"
+      className="min-h-screen px-6 py-20 md:px-12 xl:px-24 bg-secondary/30"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -228,23 +228,23 @@ export function ProjectsSection() {
           transition={{ duration: 0.6, type: "spring" }}
           className="mb-16"
         >
-          <h2 className="text-4xl font-bold tracking-tight mb-4 flex items-center gap-3">
+          <h2 className="flex items-center gap-3 mb-4 text-4xl font-bold tracking-tight">
             Project Index
             <motion.span
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="h-1 flex-1 bg-gradient-to-r from-primary/50 to-transparent rounded-full origin-left"
+              className="flex-1 h-1 origin-left rounded-full bg-gradient-to-r from-primary/50 to-transparent"
             />
           </h2>
-          <p className="text-muted-foreground max-w-2xl">
+          <p className="max-w-2xl text-muted-foreground">
             신규 런칭부터 B2B 관리자, 개인 프로젝트까지 다양한 경험을
             담았습니다.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <Dialog key={project.id}>
               <DialogTrigger asChild>
@@ -263,7 +263,7 @@ export function ProjectsSection() {
                     stiffness: 300,
                     damping: 20,
                   }}
-                  className="group relative bg-background rounded-2xl overflow-hidden border border-border cursor-pointer h-full flex flex-col shadow-sm"
+                  className="relative flex flex-col h-full overflow-hidden border shadow-sm cursor-pointer group bg-background rounded-2xl border-border"
                 >
                   {/* 🔄 모달 밖 캐러셀 */}
                   <div className="aspect-[4/3] w-full relative overflow-hidden">
@@ -304,7 +304,7 @@ export function ProjectsSection() {
                       transition={{ duration: 0.3, type: "spring" }}
                       className="absolute inset-0 z-20 flex items-center justify-center"
                     >
-                      <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-black font-bold flex items-center gap-2 shadow-lg">
+                      <div className="flex items-center gap-2 px-6 py-3 font-bold text-black rounded-full shadow-lg bg-white/90 backdrop-blur-sm">
                         <Eye className="w-5 h-5" />
                         프로젝트 상세보기
                       </div>
@@ -312,7 +312,7 @@ export function ProjectsSection() {
                   </div>
 
                   {/* Info */}
-                  <div className="p-6 flex-1 flex flex-col relative overflow-hidden">
+                  <div className="relative flex flex-col flex-1 p-6 overflow-hidden">
                     <motion.div
                       className="absolute top-0 left-0 w-1 h-full bg-primary"
                       initial={{ scaleY: 0 }}
@@ -320,16 +320,16 @@ export function ProjectsSection() {
                       transition={{ duration: 0.3 }}
                     />
 
-                    <div className="flex justify-between items-start mb-2">
-                      <span className="text-xs font-medium text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">
+                    <div className="flex items-start justify-between mb-2">
+                      <span className="px-2 py-1 text-xs font-medium tracking-wider uppercase rounded text-primary bg-primary/10">
                         {project.category}
                       </span>
-                      <span className="text-xs text-muted-foreground mt-1">
+                      <span className="mt-1 text-xs text-muted-foreground">
                         {project.period}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors mb-2">
+                    <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-primary">
                       {project.title}
                     </h3>
 
@@ -343,20 +343,20 @@ export function ProjectsSection() {
               {/* ------------------ Dialog ------------------ */}
               <DialogContent className="break-keep max-w-3xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold flex items-center gap-3">
+                  <DialogTitle className="flex items-center gap-3 text-2xl font-bold">
                     {project.title}
-                    <span className="text-sm font-normal text-muted-foreground px-3 py-1 bg-secondary rounded-full">
+                    <span className="px-3 py-1 text-sm font-normal rounded-full text-muted-foreground bg-secondary">
                       {project.category}
                     </span>
                   </DialogTitle>
-                  <p className="text-sm text-muted-foreground mt-1">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {project.period}
                   </p>
                 </DialogHeader>
 
                 <div className="mt-3 space-y-8">
                   {/* 🔄 모달 내부 캐러셀 */}
-                  <div className="aspect-video relative rounded-xl overflow-hidden bg-secondary">
+                  <div className="relative overflow-hidden aspect-video rounded-xl bg-secondary">
                     <Carousel className="w-full h-full">
                       <CarouselContent>
                         {project.images.map((src, i) => (
@@ -380,16 +380,16 @@ export function ProjectsSection() {
 
                   {/* Description */}
                   <div>
-                    <h4 className="text-lg font-bold mb-2">프로젝트 소개</h4>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h4 className="mb-2 text-lg font-bold">프로젝트 소개</h4>
+                    <p className="leading-relaxed text-muted-foreground">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Tech */}
                   <div>
-                    <h4 className="text-lg font-bold mb-2">사용 기술</h4>
-                    <div className="p-4 bg-secondary/50 rounded-lg text-sm font-mono text-primary">
+                    <h4 className="mb-2 text-lg font-bold">사용 기술</h4>
+                    <div className="p-4 font-mono text-sm rounded-lg bg-secondary/50 text-primary">
                       {project.tech}
                     </div>
                   </div>
@@ -397,7 +397,7 @@ export function ProjectsSection() {
                   {/* Role + Achievements */}
                   <div className="flex flex-col gap-8">
                     <div>
-                      <h4 className="text-lg font-bold mb-3">담당 업무</h4>
+                      <h4 className="mb-3 text-lg font-bold">담당 업무</h4>
                       <ul className="space-y-2">
                         {project.role.map((item, i) => (
                           <li
@@ -412,7 +412,7 @@ export function ProjectsSection() {
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-bold mb-3">성과</h4>
+                      <h4 className="mb-3 text-lg font-bold">성과</h4>
                       <ul className="space-y-2">
                         {project.achievements.map((item, i) => (
                           <li
@@ -428,8 +428,8 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 hover:opacity-100 cursor-pointer">
-                  <X className="h-4 w-4" />
+                <DialogClose className="absolute rounded-sm cursor-pointer right-4 top-4 opacity-70 hover:opacity-100">
+                  <X className="w-4 h-4" />
                 </DialogClose>
               </DialogContent>
             </Dialog>

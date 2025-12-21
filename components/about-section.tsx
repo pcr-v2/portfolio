@@ -14,7 +14,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center py-25 xl:py-20 px-6 md:px-12 xl:px-24 relative overflow-hidden"
+      className="relative flex flex-col justify-center min-h-screen px-6 overflow-hidden py-25 xl:py-20 md:px-12 xl:px-24"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
@@ -28,7 +28,7 @@ export function AboutSection() {
           repeat: Number.POSITIVE_INFINITY,
           ease: "easeInOut",
         }}
-        className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"
+        className="absolute w-64 h-64 rounded-full top-20 right-20 bg-primary/5 blur-3xl -z-10"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
@@ -43,10 +43,10 @@ export function AboutSection() {
           ease: "easeInOut",
           delay: 1,
         }}
-        className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl -z-10"
+        className="absolute rounded-full bottom-20 left-20 w-96 h-96 bg-blue-400/5 blur-3xl -z-10"
       />
 
-      <div className="max-w-4xl w-full mx-auto">
+      <div className="w-full max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export function AboutSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
             whileHover={{ scale: 1.1, rotate: -2 }}
-            className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 cursor-default"
+            className="inline-block px-3 py-1 mb-6 text-sm font-medium rounded-full cursor-default bg-primary/10 text-primary"
           >
             Frontend Developer
           </motion.span>
@@ -67,14 +67,14 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6"
+            className="mb-6 text-4xl font-bold leading-tight tracking-tight md:text-6xl"
           >
             가치를 만들어가는 <br />
             <motion.span
               initial={{ opacity: 0, x: -20, filter: "blur(10px)" }}
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400 inline-block"
+              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400"
             >
               프론트엔드 개발자
             </motion.span>{" "}
@@ -84,7 +84,7 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8"
+            className="max-w-2xl mb-8 text-xl leading-relaxed text-muted-foreground"
           >
             여러 프로젝트를 통해{" "}
             <span className="font-[800]">‘사용자가 겪는 순간’</span>을 중심으로
@@ -112,7 +112,7 @@ export function AboutSection() {
                   .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="px-4 py-2 xl:px-8 xl:py-4 bg-primary text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all flex items-center gap-2 group cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2 font-medium text-white transition-all rounded-full cursor-pointer xl:px-8 xl:py-4 bg-primary hover:shadow-lg hover:shadow-blue-500/25 group"
             >
               View Projects
               <motion.div
@@ -134,7 +134,7 @@ export function AboutSection() {
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="px-4 py-2 xl:px-8 xl:py-4  bg-secondary text-foreground rounded-full font-medium hover:bg-secondary/80 transition-colors cursor-pointer"
+              className="px-4 py-2 font-medium transition-colors rounded-full cursor-pointer xl:px-8 xl:py-4 bg-secondary text-foreground hover:bg-secondary/80"
             >
               Contact Me
             </motion.button>
@@ -156,7 +156,7 @@ export function AboutSection() {
                   boxShadow: "0 4px 20px rgba(49,150,255,0.2)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 rounded-full border border-primary/30 text-primary font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+                className="flex items-center gap-2 px-4 py-2 font-medium transition-all border rounded-full cursor-pointer border-primary/30 text-primary backdrop-blur-sm"
               >
                 <motion.span
                   animate={{ rotate: [0, -10, 10, 0] }}
@@ -164,8 +164,8 @@ export function AboutSection() {
                 >
                   📄
                 </motion.span>
-                이력서
-                <DownloadIcon className="text-primary w-3 h-3" />
+                경력기술서
+                <DownloadIcon className="w-3 h-3 text-primary" />
               </motion.a>
 
               {/* 2) 자소서 */}
@@ -178,7 +178,7 @@ export function AboutSection() {
                   boxShadow: "0 4px 20px rgba(255,180,0,0.25)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 rounded-full border border-yellow-500/30 text-yellow-600 font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+                className="flex items-center gap-2 px-4 py-2 font-medium text-yellow-600 transition-all border rounded-full cursor-pointer border-yellow-500/30 backdrop-blur-sm"
               >
                 <motion.span
                   animate={{ rotate: [0, 10, -10, 0] }}
@@ -187,7 +187,7 @@ export function AboutSection() {
                   ✏️
                 </motion.span>
                 자기소개서
-                <DownloadIcon className="text-yellow-600 w-3 h-3" />
+                <DownloadIcon className="w-3 h-3 text-yellow-600" />
               </motion.a>
 
               {/* 3) 포트폴리오 */}
@@ -200,7 +200,7 @@ export function AboutSection() {
                   boxShadow: "0 4px 20px rgba(0,200,150,0.25)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-600 font-medium flex items-center gap-2 transition-all cursor-pointer backdrop-blur-sm"
+                className="flex items-center gap-2 px-4 py-2 font-medium transition-all border rounded-full cursor-pointer border-emerald-500/30 text-emerald-600 backdrop-blur-sm"
               >
                 <motion.span
                   animate={{ rotate: [0, -12, 12, 0] }}
@@ -209,29 +209,29 @@ export function AboutSection() {
                   🚀
                 </motion.span>
                 포트폴리오
-                <DownloadIcon className="text-emerald-600 w-3 h-3" />
+                <DownloadIcon className="w-3 h-3 text-emerald-600" />
               </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 gap-12 mb-20 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           >
-            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="flex items-center gap-2 mb-4 text-2xl font-bold">
               About Me
               <motion.span
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="w-10 h-1 flex-1 bg-gradient-to-r from-primary/50 to-transparent rounded-full origin-left"
+                className="flex-1 w-10 h-1 origin-left rounded-full bg-gradient-to-r from-primary/50 to-transparent"
               />
             </h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 leading-relaxed text-muted-foreground">
               <p>
                 저는 기능보다 경험을, 속도보다 방향을 먼저 고민하는 프론트엔드
                 개발자입니다. 프로젝트마다 다른 제약과 환경을 경험하며, 기술
@@ -250,7 +250,7 @@ export function AboutSection() {
                 무엇보다 가치 있게 여깁니다.
               </p>
             </div>
-            <div className="mt-6 flex flex-col gap-2 text-sm font-medium">
+            <div className="flex flex-col gap-2 mt-6 text-sm font-medium">
               <p>Park Cheol Ryeon</p>
               <p>1991.05.28</p>
               <p>frontendtt@gmail.com</p>
@@ -268,13 +268,13 @@ export function AboutSection() {
               delay: 0.2,
             }}
           >
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h3 className="flex items-center gap-2 mb-6 text-2xl font-bold">
               Skills
               <motion.span
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="w-10 h-1 flex-1 bg-gradient-to-r from-primary/50 to-transparent rounded-full origin-left"
+                className="flex-1 w-10 h-1 origin-left rounded-full bg-gradient-to-r from-primary/50 to-transparent"
               />
             </h3>
             <div className="space-y-6">
@@ -302,15 +302,15 @@ export function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.1 }}
                   whileHover={{ x: 5 }}
-                  className="group cursor-default"
+                  className="cursor-default group"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <h4 className="font-bold group-hover:text-primary transition-colors">
+                    <skill.icon className="w-5 h-5 transition-transform text-primary group-hover:scale-110" />
+                    <h4 className="font-bold transition-colors group-hover:text-primary">
                       {skill.title}
                     </h4>
                   </div>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors">
+                  <p className="transition-colors text-muted-foreground group-hover:text-foreground">
                     {skill.desc}
                   </p>
                 </motion.div>

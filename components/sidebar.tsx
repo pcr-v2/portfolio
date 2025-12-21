@@ -24,7 +24,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
   ];
 
   return (
-    <aside className="hidden xl:flex fixed left-0 top-0 h-screen w-64 xl:w-80 flex-col justify-between border-r border-border bg-background p-8 z-40">
+    <aside className="fixed top-0 left-0 z-40 flex-col justify-between hidden w-64 h-screen p-8 border-r xl:flex xl:w-80 border-border bg-background">
       <div>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -44,7 +44,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           >
             PORTFOLIO<span className="text-primary">.</span>
           </motion.h1>
-          <p className="text-muted-foreground mt-2 text-sm">
+          <p className="mt-2 text-sm text-muted-foreground">
             Frontend Developer <br /> Park Cheol Ryeon
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8, duration: 0.6 }}
-        className="flex gap-1 justify-center items-start"
+        className="flex flex-col items-start justify-center w-full gap-1"
       >
         {/* 이력서 */}
         <motion.a
@@ -111,7 +111,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-primary/30 text-primary 
-               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] w-full justify-center font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
@@ -121,7 +121,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           >
             📄
           </motion.span>
-          이력서
+          경력기술서
           <DownloadIcon className="w-3 h-3" />
         </motion.a>
 
@@ -135,7 +135,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-yellow-500/30 text-yellow-600
-               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] w-full justify-center font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
@@ -159,7 +159,7 @@ export function Sidebar({ activeSection, scrollToSection }: SidebarProps) {
           }}
           whileTap={{ scale: 0.95 }}
           className="px-2.5 py-1.5 rounded-[4px] border border-emerald-500/30 text-emerald-600
-               text-[10px] font-medium flex items-center gap-1.5 cursor-pointer 
+               text-[10px] w-full justify-center font-medium flex items-center gap-1.5 cursor-pointer 
                transition-all"
         >
           <motion.span
